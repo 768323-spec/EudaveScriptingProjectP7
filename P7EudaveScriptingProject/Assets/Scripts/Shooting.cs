@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 
-public class NewBehaviourScript1 : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
     public Rigidbody bulletPrefab;
     public Transform firePosition;
@@ -18,19 +18,18 @@ public class NewBehaviourScript1 : MonoBehaviour
     }
 
 
-    void Update ()
+    void Update()
     {
         Shoot();
     }
 
-
     void Shoot ()
     {
-        if(Input.GetButtonDown("Fire1") && inventory.myStuff.bullets > 0)
+        if (Input.GetButtonDown("Fire1") && inventory.myStuff.bullets > 0)
         {
             Rigidbody bulletInstance = Instantiate(bulletPrefab, firePosition.position, firePosition.rotation) as Rigidbody;
-            bulletInstance.AddForce(firePosition.forward * bulletSpeed);
-            inventory.myStuff.bullets--;
+            bulletInstance.AddForce(firePosition.foward * bulletSpeed);
+            inventory.myStuff.bullets++;
         }
     }
 }
